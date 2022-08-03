@@ -12,7 +12,8 @@ sh "rm -rf ${build_dir}/dist"
 echo "删除以前构建的dist文件目录 >>> ${build_dir}/dist"
  
 # 进入工程打包构建的目录，构建
-cd ${build_dir} && npm install
+cd ${build_dir}
+npm install
 npm run build
  
 echo -e "\n--------------- npm开始构建打包 end ---------------\n"
