@@ -9,7 +9,7 @@ echo -e "\n--------------- npm开始构建打包 start ---------------\n"
  
 # 删除以前构建的dist文件
 sh "rm -rf ${build_dir}/dist"
-sh "rm -rf ${build_dir}/node_nodules/*.DELETE"
+sh "rm -rf ${build_dir}/node_nodules"
 echo "删除以前构建的dist文件目录 >>> ${build_dir}/dist"
  
 # 进入工程打包构建的目录，构建
