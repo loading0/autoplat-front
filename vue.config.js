@@ -3,6 +3,9 @@ module.exports = {
   outputDir: "dist",
   assetsDir:"./static",
   indexPath:'index.html',
+  devServer: {
+    host: '47.94.233.53'
+  }
   // configureWebpack: {
   //   devtool: 'source-map'
   // }
