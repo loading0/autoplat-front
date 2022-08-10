@@ -15,7 +15,7 @@
                 <!-- <img class="img-login" src="../assets/page1_3.jpg"/> -->
             </div>
             <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" class="demo-ruleForm login-container">
-                <h3 class="title">系统登录</h3>
+                <h3 class="title">平台登录</h3>
                 <el-form-item prop="account">
                     <el-input type="text" v-model.trim="ruleForm2.account" auto-complete="off" placeholder="账号"></el-input>
                 </el-form-item>
