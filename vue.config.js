@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   lintOnSave: false,
   outputDir: "dist",
@@ -5,7 +7,13 @@ module.exports = {
   indexPath:'index.html',
   devServer: {
     host: '47.94.233.53'
-  }
+  },
+  chainWebpack: config => {
+    config.plugin('chunkPlugin').use(webpack.optimize.LimitChunkCountPlugin,[{
+            maxChunks:5, // 必须大于或等于 1
+            minChunkSize: 10000
+        }])
+}
   // configureWebpack: {
   //   devtool: 'source-map'
   // }
