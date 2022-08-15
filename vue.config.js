@@ -5,8 +5,12 @@ module.exports = {
   outputDir: "dist",
   assetsDir:"./static",
   indexPath:'index.html',
+  publicPath: "/",
   devServer: {
-    host: '47.94.233.53'
+    host: '47.94.233.53',
+    historyApiFallback: {
+      index: "/index.html", // 与output的publicPath
+    },
   },
   chainWebpack: config => {
     config.plugin('chunkPlugin').use(webpack.optimize.LimitChunkCountPlugin,[{
