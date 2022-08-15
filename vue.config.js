@@ -4,13 +4,13 @@ module.exports = {
   lintOnSave: false,
   outputDir: "dist",
   assetsDir:"./static",
-  indexPath:'index.html',
-  // publicPath: "/",
+  indexPath:"index.html",
+  publicPath: "/",
   devServer: {
-    host: '47.94.233.53'
-    // historyApiFallback: {
-    //   index: "/index.html", // 与output的publicPath
-    // },
+    host: '47.94.233.53',
+    historyApiFallback: {
+      index: "/index.html", // 与output的publicPath
+    },
   },
   // chainWebpack: config => {
   //   config.plugin('chunkPlugin').use(webpack.optimize.LimitChunkCountPlugin,[{
@@ -21,7 +21,7 @@ module.exports = {
   // configureWebpack: {
   //   devtool: 'source-map'
   // }
-}
+
 // module.exports = {
 //   lintOnSave: false,
 //   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
