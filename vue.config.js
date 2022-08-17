@@ -5,18 +5,19 @@ module.exports = {
   outputDir: "dist",
   assetsDir:"./static",
   indexPath:"index.html",
-  publicPath: "/",
+  // publicPath: "/",
   devServer: {
     host: '47.94.233.53',
-    historyApiFallback: {
-      index: "/index.html", // 与output的publicPath
-    },
+    // historyApiFallback: {
+    //   index: "/index.html", // 与output的publicPath
+    // },
   },
-  // chainWebpack: config => {
-  //   config.plugin('chunkPlugin').use(webpack.optimize.LimitChunkCountPlugin,[{
-  //           maxChunks:5, // 必须大于或等于 1
-  //           minChunkSize: 10000
-  //       }])
+  chainWebpack: config => {
+    config.plugin('chunkPlugin').use(webpack.optimize.LimitChunkCountPlugin,[{
+            maxChunks:5, // 必须大于或等于 1
+            minChunkSize: 10000
+        }])
+  }
 }
   // configureWebpack: {
   //   devtool: 'source-map'
