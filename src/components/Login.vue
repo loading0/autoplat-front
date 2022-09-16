@@ -1,6 +1,6 @@
 <template>
         <div class="homeBox">
-            <canvas id="canvas"></canvas>
+            <!-- <canvas id="canvas"></canvas> -->
             <!-- <canvas id="canvas" :style="{height: screenHeight+'px'}"></canvas> -->
             <div style="width:32%;height: auto;margin-left: 30%">
                 <div class="title0">自动化接口测试平台</div>
