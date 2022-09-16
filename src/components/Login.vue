@@ -3,8 +3,8 @@
             <!-- <canvas id="canvas"></canvas> -->
             <!-- <canvas id="canvas" :style="{height: screenHeight+'px'}"></canvas> -->
             <div style="width:32%;height: auto;margin-left: 30%">
-                <div class="title0">自动化接口测试平台</div>
-                <div class="title1">项目管理、接口管理、用例管理、测试报告、任务设置</div>
+                <div class="title0">接口自动化测试平台</div>
+                <div class="title1">项目配置、接口管理、用例管理、测试报告、任务设置</div>
                 <!-- <div class="lun-container">
                     <div class="carouse" id="carouse1">
                         <div class="pic1"><img src="../assets/page1_0.png" alt="pic1"></div>
@@ -15,7 +15,7 @@
                 <!-- <img class="img-login" src="../assets/page1_3.jpg"/> -->
             </div>
             <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" class="demo-ruleForm login-container">
-                <h3 class="title">平台登录</h3>
+                <h3 class="title">系统登录</h3>
                 <el-form-item prop="account">
                     <el-input type="text" v-model.trim="ruleForm2.account" auto-complete="off" placeholder="账号"></el-input>
                 </el-form-item>
