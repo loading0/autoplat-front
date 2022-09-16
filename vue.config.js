@@ -6,11 +6,6 @@ module.exports = {
   assetsDir:"./static",
   indexPath:"index.html",
   // publicPath: "/",
-  devServer: {
-    host: '47.94.233.53',
-    port: 8000
-
-  },
   // devServer: {
   //   host: '47.94.233.53',
   //   // historyApiFallback: {
