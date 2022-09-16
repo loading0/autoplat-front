@@ -8,10 +8,15 @@ module.exports = {
   // publicPath: "/",
   devServer: {
     host: '47.94.233.53',
-    // historyApiFallback: {
-    //   index: "/index.html", // 与output的publicPath
-    // },
+    port: 8000
+
   },
+  // devServer: {
+  //   host: '47.94.233.53',
+  //   // historyApiFallback: {
+  //   //   index: "/index.html", // 与output的publicPath
+  //   // },
+  // },
   chainWebpack: config => {
     config.plugin('chunkPlugin').use(webpack.optimize.LimitChunkCountPlugin,[{
             maxChunks:5, // 必须大于或等于 1
