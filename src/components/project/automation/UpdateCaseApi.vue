@@ -174,7 +174,7 @@
     </section>
 </template>
 <script>
-    import { test } from '../../../api/api'
+    import { base_url } from '../../../api/api'
     import $ from 'jquery'
     export default {
         data() {
@@ -280,7 +280,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/get_correlation_response",
+                    url: base_url+"/api/automation/get_correlation_response",
                     async: true,
                     data: {project_id: this.$route.params.project_id,
                         case_id: this.$route.params.case_id,
@@ -384,7 +384,7 @@
                             console.log(param)
                             $.ajax({
                                 type: "post",
-                                url: test+"/api/automation/update_api",
+                                url: base_url+"/api/automation/update_api",
                                 async: true,
                                 data: param,
                                 headers: {
@@ -445,7 +445,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/api_info",
+                    url: base_url+"/api/automation/api_info",
                     async: true,
                     data: {project_id: this.$route.params.project_id,
                         case_id: this.$route.params.case_id,

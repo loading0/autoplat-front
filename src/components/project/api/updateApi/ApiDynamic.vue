@@ -1,8 +1,3 @@
-<!--
- * @Descripttion: 
- * @Author: zlj
- * @Date: 2020-09-08 10:33:44
--->
 <template>
     <el-row class="dynamic-manage">
         <el-col :span="24">
@@ -24,7 +19,7 @@
 </template>
 
 <script>
-    import { test } from '../../../../api/api'
+    import { base_url } from '../../../../api/api'
     import $ from 'jquery'
     export default {
         data() {
@@ -46,7 +41,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/operation_history",
+                    url: base_url+"/api/api/operation_history",
                     async: true,
                     data: { project_id: this.$route.params.project_id, page: self.page, api_id: this.$route.params.api_id},
                     headers: {

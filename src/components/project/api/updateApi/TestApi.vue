@@ -152,7 +152,7 @@
     </section>
 </template>
 <script>
-    import { test } from '../../../../api/api'
+    import { base_url } from '../../../../api/api'
     import $ from 'jquery'
     export default {
         data() {
@@ -257,7 +257,7 @@
                 let param = {project_id: self.$route.params.project_id, api_id: self.$route.params.api_id};
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/api_info",
+                    url: base_url+"/api/api/api_info",
                     async: true,
                     data: param,
                     headers: {
@@ -315,7 +315,7 @@
                 this.listLoading = true;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/history_list",
+                    url: base_url+"/api/api/history_list",
                     async: true,
                     data: { project_id: this.$route.params.project_id, api_id: self.$route.params.api_id,},
                     headers: {
@@ -351,7 +351,7 @@
                 console.log(param)
                 $.ajax({
                     type: "POST",
-                    url: test+"/api/api/add_history",
+                    url: base_url+"/api/api/add_history",
                     async: true,
                     data: param,
                     headers: {
@@ -382,7 +382,7 @@
                 });
                 $.ajax({
                     type: "POST",
-                    url: test+"/api/api/del_history",
+                    url: base_url+"/api/api/del_history",
                     async: true,
                     data: param,
                     headers: {
@@ -411,7 +411,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/global/host_total",
+                    url: base_url+"/api/global/host_total",
                     async: true,
                     data: { project_id: this.$route.params.project_id, page: this.page,},
                     headers: {

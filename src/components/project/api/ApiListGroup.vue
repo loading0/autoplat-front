@@ -77,7 +77,7 @@
 </template>
 
 <script>
-    import { test } from '../../../api/api'
+    import { base_url } from '../../../api/api'
     import $ from 'jquery'
     export default {
         data() {
@@ -112,7 +112,7 @@
 				});
 				$.ajax({
                     type: "post",
-                    url: test+"/api/api/updateMock",
+                    url: base_url+"/api/api/updateMock",
                     async: true,
                     data: param,
                     headers: {
@@ -149,7 +149,7 @@
 
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/api_list",
+                    url: base_url+"/api/api/api_list",
                     async: true,
                     data: param,
                     headers: {
@@ -188,7 +188,7 @@
                     });
                     $.ajax({
                         type: "post",
-                        url: test+"/api/api/update_group",
+                        url: base_url+"/api/api/update_group",
                         async: true,
                         data: params,
                         headers: {
@@ -225,7 +225,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/group",
+                    url: base_url+"/api/api/group",
                     async: true,
                     data: { project_id: this.$route.params.project_id},
                     headers: {
@@ -263,7 +263,7 @@
                     let self = this;
                     $.ajax({
                         type: "post",
-                        url: test+"/api/api/del_api",
+                        url: base_url+"/api/api/del_api",
                         async: true,
                         data: JSON.stringify({ project_id: Number(this.$route.params.project_id), ids: [row.id] }),
                         headers: {
@@ -314,7 +314,7 @@
                     //NProgress.start();
                     $.ajax({
                         type: "post",
-                        url: test+"/api/api/del_api",
+                        url: base_url+"/api/api/del_api",
                         async: true,
                         data:JSON.stringify({ project_id: Number(this.$route.params.project_id), ids: ids}),
                         headers: {

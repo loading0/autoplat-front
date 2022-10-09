@@ -229,7 +229,7 @@
     </section>
 </template>
 <script>
-    import { test } from '../../../../api/api'
+    import { base_url } from '../../../../api/api'
     import $ from 'jquery'
     export default {
         data() {
@@ -356,7 +356,7 @@
                 let param = {project_id: self.$route.params.project_id, api_id: self.$route.params.api_id};
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/api_info",
+                    url: base_url+"/api/api/api_info",
                     async: true,
                     data: param,                  
                     timeout: 5000,
@@ -584,7 +584,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/group",
+                    url: base_url+"/api/api/group",
                     async: true,
                     data: { project_id: this.$route.params.project_id},
                     headers: {

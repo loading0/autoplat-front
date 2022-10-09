@@ -136,7 +136,7 @@
 <script>
     import $ from 'jquery'
     import VuePopper from "element-ui/src/utils/vue-popper";
-    import { test } from '../../../api/api'
+    import { base_url } from '../../../api/api'
     export default {
         components: {VuePopper},
         data() {
@@ -237,7 +237,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/global/host_total",
+                    url: base_url+"/api/global/host_total",
                     async: true,
                     data: { project_id: this.$route.params.project_id, page: this.page,},
                     timeout: 5000,

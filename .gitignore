@@ -1,7 +1,12 @@
 .DS_Store
 node_modules
 /dist
-
+.browserslistrc
+.editorconfig
+.eslintrc.js
+.gitignore
+yarn-buid.sh
+test.spec.js
 
 # local env files
 .env.local

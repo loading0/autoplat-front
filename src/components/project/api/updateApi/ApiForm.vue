@@ -35,7 +35,7 @@
 </template>
 
 <script>
-    import { test } from '../../../../api/api'
+    import { base_url } from '../../../../api/api'
     import $ from 'jquery'
     export default {
         name: "api-form",
@@ -53,7 +53,7 @@
                     let self = this;
                     $.ajax({
                         type: "post",
-                        url: test+"/api/api/del_api",
+                        url: base_url+"/api/api/del_api",
                         async: true,
                         data: JSON.stringify({ project_id: Number(this.$route.params.project_id), ids: [this.$route.params.api_id] }),
                         headers: {

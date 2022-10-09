@@ -151,7 +151,7 @@
 </template>
 
 <script>
-    import { test } from '../../../api/api'
+    import { base_url } from '../../../api/api'
     import $ from 'jquery'
     import moment from "moment"
     export default {
@@ -303,7 +303,7 @@
             DownloadApi() {
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/DownloadCase",
+                    url: base_url+"/api/automation/DownloadCase",
                     async: true,
                     data: { project_id: this.$route.params.project_id},
                     headers: {
@@ -312,7 +312,7 @@
                     timeout: 5000,
                     success: function(data) {
                         if (data.code === "999999") {
-                            window.open(test+"/api/api/download_doc?url="+data.data)
+                            window.open(base_url+"/api/api/download_doc?url="+data.data)
                         }
                     },
                 })
@@ -330,7 +330,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/global/host_total",
+                    url: base_url+"/api/global/host_total",
                     async: true,
                     data: { project_id: this.$route.params.project_id, page: this.page,},
                     headers: {
@@ -358,7 +358,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/get_time_task",
+                    url: base_url+"/api/automation/get_time_task",
                     async: true,
                     data: {
                         project_id: self.$route.params.project_id,
@@ -433,7 +433,7 @@
                             }
                             $.ajax({
                                 type: "post",
-                                url: test+"/api/automation/add_time_task",
+                                url: base_url+"/api/automation/add_time_task",
                                 async: true,
                                 data: JSON.stringify(param),
                                 headers: {
@@ -476,7 +476,7 @@
                 self.delLoading = true;
                 $.ajax({
                     type: "post",
-                    url: test+"/api/automation/del_task",
+                    url: base_url+"/api/automation/del_task",
                     async: true,
                     data: JSON.stringify({
                         project_id: Number(self.$route.params.project_id),
@@ -526,7 +526,7 @@
 
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/case_list",
+                    url: base_url+"/api/automation/case_list",
                     async: true,
                     data: param,
                     headers: {
@@ -564,7 +564,7 @@
                     });
                     $.ajax({
                         type: "post",
-                        url: test+"/api/automation/update_case_group",
+                        url: base_url+"/api/automation/update_case_group",
                         async: true,
                         data: params,
                         headers: {
@@ -601,7 +601,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/group",
+                    url: base_url+"/api/automation/group",
                     async: true,
                     data: { project_id: this.$route.params.project_id},
                     headers: {
@@ -638,7 +638,7 @@
                     let self = this;
                     $.ajax({
                         type: "post",
-                        url: test+"/api/automation/del_case",
+                        url: base_url+"/api/automation/del_case",
                         async: true,
                         data: JSON.stringify({
                                 project_id: Number(this.$route.params.project_id),
@@ -691,7 +691,7 @@
                     //NProgress.start();
                     $.ajax({
                         type: "post",
-                        url: test+"/api/automation/del_case",
+                        url: base_url+"/api/automation/del_case",
                         async: true,
                         data:JSON.stringify({ project_id: Number(this.$route.params.project_id), ids: ids}),
                         headers: {
@@ -748,7 +748,7 @@
                                 description: self.editForm.description });
                             $.ajax({
                                 type: "post",
-                                url: test+"/api/automation/update_case",
+                                url: base_url+"/api/automation/update_case",
                                 async: true,
                                 data: param,
                                 headers: {
@@ -798,7 +798,7 @@
                                 description: self.addForm.description });
                             $.ajax({
                                 type: "post",
-                                url: test+"/api/automation/add_case",
+                                url: base_url+"/api/automation/add_case",
                                 async: true,
                                 data: param,
                                 headers: {

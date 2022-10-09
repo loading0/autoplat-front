@@ -7,7 +7,8 @@ import ElementUI from "element-ui";
 import echarts from 'echarts';
 import "element-ui/lib/theme-chalk/index.css";
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000';
+//axios.defaults.baseURL = 'http://127.0.0.1:8000';
+axios.defaults.baseURL = 'http://47.94.233.53:8000'
 // axios请求拦截
 axios.interceptors.request.use(config => {
   // console.log(config)

@@ -88,7 +88,8 @@
 </template>
 
 <script>
-    import { test } from '../../../api/api'
+    import { base_url } from '../../../api/api'
+    // import { base_url, getApi, updateGroup } from '../../../api/api'
     // import Nav_Bar from '@/components/Project'
     import $ from 'jquery'
     export default {
@@ -134,7 +135,7 @@
               
                 $.ajax({
                     type: "post",
-                    url: test+"/api/api/updateMock",
+                    url: base_url+"/api/api/updateMock",
                     async: true,
                     data: param,
                     headers: {
@@ -165,9 +166,23 @@
                 this.listLoading = true;
                 let self = this;
                 let param = { project_id: this.$route.params.project_id, page: self.page, name: self.filters.name};
+                // getApi( params).then((res) => {
+                //     self.listLoading = false;
+                //     var { msg, code, data } = res;
+                //     if (code === '999999') {
+                //         self.total = data.total;
+                //         self.api = data.data;
+                //     }
+                //     else {
+                //         self.$message.error({
+                //             message: msg,
+                //             center: true
+                //         });
+                //     }
+                // });
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/api_list",
+                    url: base_url+"/api/api/api_list",
                     async: true,
                     data: param,
                     headers: {
@@ -206,7 +221,7 @@
                     });
                     $.ajax({
                         type: "post",
-                        url: test+"/api/api/update_group",
+                        url: base_url+"/api/api/update_group",
                         async: true,
                         data: params,
                         headers: {
@@ -243,7 +258,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/group",
+                    url: base_url+"/api/api/group",
                     async: true,
                     data: { project_id: this.$route.params.project_id},
                     headers: {
@@ -280,7 +295,7 @@
                     let self = this;
                     $.ajax({
                         type: "post",
-                        url: test+"/api/api/del_api",
+                        url: base_url+"/api/api/del_api",
                         async: true,
                         data: JSON.stringify({ project_id: Number(this.$route.params.project_id), ids: [row.id] }),
                         headers: {
@@ -312,7 +327,7 @@
             DownloadApi() {
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/Download",
+                    url: base_url+"/api/api/Download",
                     async: true,
                     data: { project_id: this.$route.params.project_id},
                     headers: {
@@ -321,7 +336,7 @@
                     timeout: 5000,
                     success: function(data) {
                         if (data.code === "999999") {
-                            window.open(test+"/api/api/download_doc?url="+data.data)
+                            window.open(base_url+"/api/api/download_doc?url="+data.data)
                         }
                     },
                 })
@@ -350,7 +365,7 @@
                     //NProgress.start();
                     $.ajax({
                         type: "post",
-                        url: test+"/api/api/del_api",
+                        url: base_url+"/api/api/del_api",
                         async: true,
                         data:JSON.stringify({ project_id: Number(this.$route.params.project_id), ids: ids}),
                         headers: {
@@ -386,7 +401,7 @@
 				if (this.swaggerUrl){
 				    $.ajax({
                         type: "post",
-                        url: test+"/api/api/lead_swagger",
+                        url: base_url+"/api/api/lead_swagger",
                         async: true,
                         data:JSON.stringify({ project_id: Number(this.$route.params.project_id), url: this.swaggerUrl}),
                         headers: {

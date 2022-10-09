@@ -162,7 +162,7 @@
 </template>
 
 <script>
-    import { test } from '../../../../api/api'
+    import { base_url } from '../../../../api/api'
     import $ from 'jquery'
     export default {
         data() {
@@ -209,7 +209,7 @@
                 let param = {project_id: self.$route.params.project_id, api_id: self.$route.params.api_id};
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/api_info",
+                    url: base_url+"/api/api/api_info",
                     async: true,
                     data: param,
                     headers: {

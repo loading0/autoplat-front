@@ -120,7 +120,7 @@
 </template>
 
 <script>
-    import { test } from '../../../api/api'
+    import { base_url } from '../../../api/api'
     import $ from 'jquery'
     import moment from "moment"
     export default {
@@ -159,7 +159,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/api_list",
+                    url: base_url+"/api/automation/api_list",
                     async: true,
                     data: { project_id: this.$route.params.project_id,
                         page: self.page,
@@ -196,7 +196,7 @@
                     let self = this;
                     $.ajax({
                         type: "post",
-                        url: test+"/api/automation/start_test",
+                        url: base_url+"/api/automation/start_test",
                         async: true,
                         data: JSON.stringify({
                             project_id: Number(this.$route.params.project_id),
@@ -247,7 +247,7 @@
                     this.ApiList[this.ApiListIndex].testStatus = true;
                     $.ajax({
                         type: "post",
-                        url: test+"/api/automation/start_test",
+                        url: base_url+"/api/automation/start_test",
                         async: true,
                         data: JSON.stringify({
                             project_id: Number(this.$route.params.project_id),
@@ -297,7 +297,7 @@
                     let self = this;
                     $.ajax({
                         type: "post",
-                        url: test+"/api/automation/del_api",
+                        url: base_url+"/api/automation/del_api",
                         async: true,
                         data: JSON.stringify({
                             project_id: Number(this.$route.params.project_id),
@@ -333,7 +333,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/group",
+                    url: base_url+"/api/api/group",
                     async: true,
                     data: { project_id: this.$route.params.project_id},
                     headers: {
@@ -362,7 +362,7 @@
                 }
                 $.ajax({
                     type: "get",
-                    url: test+"/api/api/api_list",
+                    url: base_url+"/api/api/api_list",
                     async: true,
                     data: param,
                     headers: {
@@ -392,7 +392,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/look_result",
+                    url: base_url+"/api/automation/look_result",
                     async: true,
                     data: {
                         project_id: this.$route.params.project_id,
@@ -453,7 +453,7 @@
                         });
                     $.ajax({
                         type: "post",
-                        url: test+"/api/automation/add_old_api",
+                        url: base_url+"/api/automation/add_old_api",
                         async: true,
                         data:param,
                         headers: {
@@ -498,7 +498,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/global/host_total",
+                    url: base_url+"/api/global/host_total",
                     async: true,
                     data: { project_id: this.$route.params.project_id},
                     headers: {

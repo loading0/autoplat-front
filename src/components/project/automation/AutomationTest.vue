@@ -64,7 +64,7 @@
 </template>
 
 <script>
-    import { test } from '../../../api/api'
+    import { base_url } from '../../../api/api'
     import $ from 'jquery'
     export default {
         data() {
@@ -119,7 +119,7 @@
                 let self = this;
                 $.ajax({
                     type: "get",
-                    url: test+"/api/automation/group",
+                    url: base_url+"/api/automation/group",
                     async: true,
                     data: { project_id: Number(this.$route.params.project_id)},
                     headers: {
@@ -163,7 +163,7 @@
                             //NProgress.start();
                             $.ajax({
                                 type: "post",
-                                url: test+"/api/automation/add_group",
+                                url: base_url+"/api/automation/add_group",
                                 async: true,
                                 data: JSON.stringify({
                                         project_id: Number(this.$route.params.project_id),
@@ -216,7 +216,7 @@
                             self.editFirstGroupLoading = true;
                             $.ajax({
                                 type: "post",
-                                url: test+"/api/automation/update_name_group",
+                                url: base_url+"/api/automation/update_name_group",
                                 async: true,
                                 data: JSON.stringify({ project_id: Number(this.$route.params.project_id),
                                     name: self.editFirstGroupForm.secondFirstGroup,
@@ -268,7 +268,7 @@
                     let self = this;
                     $.ajax({
                         type: "post",
-                        url: test+"/api/automation/del_group",
+                        url: base_url+"/api/automation/del_group",
                         async: true,
                         data: JSON.stringify({id: Number(id),
                             project_id: Number(this.$route.params.project_id)}),
