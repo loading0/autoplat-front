@@ -2,7 +2,7 @@
   <div>
     <el-row :span="24"  v-if="targetPath == 1">
       <el-col :span="6" class="bar">
-        <Nav_Bar/>
+        <Api_Nav_Bar/>
       </el-col>  
     </el-row>
     <el-row :span="24">
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-    import Nav_Bar from '@/components/Project'
+    import Api_Nav_Bar from '@/components/project/ProjectBar'
     export default {
         components: {
-            Nav_Bar
+          Api_Nav_Bar
         },
         data() {
           return {

@@ -480,7 +480,7 @@
                                     // console.log(typeof _parameter)
                                     $.ajax({
                                         type: "post",
-                                        url: test + "/api/api/update_api",
+                                        url: base_url+ "/api/api/update_api",
                                         async: true,
                                         data: param,
                                         timeout: 5000,
@@ -514,7 +514,7 @@
                             } else {
                                 $.ajax({
                                     type: "post",
-                                    url: test + "/api/api/update_api",
+                                    url: base_url+ "/api/api/update_api",
                                     async: true,
                                     data: param,
                                     timeout: 5000,

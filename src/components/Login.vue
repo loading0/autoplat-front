@@ -1,31 +1,21 @@
 <template>
         <div class="homeBox">
-            <!-- <canvas id="canvas"></canvas> -->
-            <!-- <canvas id="canvas" :style="{height: screenHeight+'px'}"></canvas> -->
             <div style="width:32%;height: auto;margin-left: 30%">
                 <div class="title0">接口自动化测试平台</div>
                 <div class="title1">项目配置、接口管理、用例管理、测试报告、任务设置</div>
-                <!-- <div class="lun-container">
-                    <div class="carouse" id="carouse1">
-                        <div class="pic1"><img src="../assets/page1_0.png" alt="pic1"></div>
-                        <div class="pic2"><img src="../assets/page1_1.png" alt="pic2"></div>
-                        <div class="pic3"><img src="../assets/page1_2.png" alt="pic3"></div>
-                    </div>
-                </div> -->
-                <!-- <img class="img-login" src="../assets/page1_3.jpg"/> -->
             </div>
-            <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" class="demo-ruleForm login-container">
+            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="demo-ruleForm login-container">
                 <h3 class="title">系统登录</h3>
                 <el-form-item prop="account">
-                    <el-input type="text" v-model.trim="ruleForm2.account" auto-complete="off" placeholder="账号"></el-input>
+                    <el-input type="text" v-model.trim="ruleForm.account" auto-complete="off" placeholder="账号"></el-input>
                 </el-form-item>
                 <el-form-item prop="checkPass">
-                    <el-input type="password" v-model.trim="ruleForm2.checkPass" auto-complete="off" placeholder="密码"></el-input>
+                    <el-input type="password" v-model.trim="ruleForm.checkPass" auto-complete="off" placeholder="密码"></el-input>
                 </el-form-item>
                 <el-checkbox v-model="checked" checked class="remember">记住密码</el-checkbox>
-                <el-button  type="text" @click.native.prevent="handleReset2">重置</el-button>
+                <el-button  type="text" @click.native.prevent="handleReset">重置</el-button>
                 <el-form-item style="width:100%;">
-                    <el-button type="primary" style="width:100%;" @click.native.prevent="handleSubmit2" :loading="logining">登录</el-button>
+                    <el-button type="primary" style="width:100%;" @click.native.prevent="handleSubmit" :loading="logining">登录</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -40,15 +30,13 @@
                    
 
                     logining: false,
-                    ruleForm2: {
-                        // account: '',
-                        // checkPass: ''
-                        // account: '1008610086',
-                        // checkPass: 'burnish1234'
+                    ruleForm: {
+                        // account: 'root',
+                        // checkPass: 'root1234'
                         account: '',
                         checkPass: ''
                     },
-                    rules2: {
+                    rules: {
                         account: [
                             { required: true, message: '请输入账号', trigger: 'blur' }
                             // { validator: validaePass }
@@ -64,154 +52,24 @@
          
 
             mounted (){
-
-            // this.getVisitor();
-            // this.carouselPicture()
-                // CANVAS
-            var canvas = document.getElementById("canvas");
-            var ctx = canvas.getContext("2d");
-            var cw = canvas.width = window.innerWidth,
-                cx = cw / 2;
-            var ch = canvas.height = window.innerHeight,
-                cy = ch / 2;
- 
-            var requestId = null;
- 
-            var colors = ["#93DFB8", "#FFC8BA", "#E3AAD6", "#B5D8EB", "#FFBDD8"];
- 
-            function Particle() {
-                this.x = Math.random() * cw;
-                this.y = Math.random() * ch;
-                this.r = 15 + ~~(Math.random() * 20); //radius of the circumcircle
-                this.minR = 2 + ~~(Math.random() * 2) ;
-                this.maxR = 6 + ~~(Math.random() * 2) ;
-                this.l = 3 + ~~(Math.random() * 2); //polygon sides
-                this.a = 2 * Math.PI / this.l;      // angle between polygon vertices
-                this.rot = Math.random() * Math.PI; // polygon rotation
-                this.speed = .05 + Math.random() / 2;
-                this.rotSpeed = 0.005 + Math.random() * .005;
-                this.color = colors[~~(Math.random() * colors.length)];
-            }
-            Particle.prototype.update = function() {
-                if(this.y < -this.r) {
-                    this.y = ch + this.r;
-                    this.x = Math.random() * cw;
-                }
-                this.y -= this.speed;
-            }
-            Particle.prototype.draw = function() {
-                ctx.save();      //多边形
-                ctx.translate(this.x, this.y);
-                ctx.rotate(this.rot);
-                ctx.beginPath();
-                for(var i = 0; i < this.l; i++) {
-                    var x = this.r * Math.cos(this.a * i);
- 
-                    var y = this.r * Math.sin(this.a * i);
-                    ctx.lineTo(x, y);
-                }
-                ctx.closePath();
-                ctx.lineWidth = 4;
-                ctx.strokeStyle = this.color;
-                ctx.stroke();
-                ctx.restore();
- 
-                ctx.save();       //星星
-                ctx.beginPath();
-                ctx.translate(this.x / 1.1, this.y / 2);
-                ctx.rotate(this.rot);
-                ctx.globalAlpha = light;
-                for(var i = 0; i < 5; i ++){
-                    var x = 5;
-                    var y = 5;
-                    ctx.lineTo( Math.cos( (18 + i*72 )/180 * Math.PI) * this.maxR + x,
-                                -Math.sin( (18 + i*72 )/180 * Math.PI) * this.maxR + y)
-                    ctx.lineTo( Math.cos( (54 + i*72 )/180 * Math.PI) * this.minR + x,
-                                -Math.sin( (54 + i*72 )/180 * Math.PI) * this.minR + y)
-                }
-                ctx.closePath();
-                ctx.lineWidth = 1;
-                ctx.fillStyle = "#fbd94e";
-                ctx.strokeStyle = "#fbd94e";
-                ctx.lineJoin = "round";
-                ctx.fill();
-                ctx.stroke();
-                ctx.restore();
-            }
- 
-            var particles = [];
-            for(var i = 0; i < 20; i++) {
-                var p = new Particle();
-                particles.push(p)
-            }
- 
-            function Draw() {
-                requestId = window.requestAnimationFrame(Draw);
-                //ctx.globalAlpha=0.65;
-                ctx.clearRect(0, 0, cw, ch);
-                particles.map((p) => {
-                    p.rot += p.rotSpeed;
-                    p.update();
-                    p.draw();
-                })
- 
-            }
- 
-            function Init() {
-                if(requestId) {
-                    window.cancelAnimationFrame(requestId);
-                    requestId = null;
-                }
- 
-                cw = canvas.width = window.innerWidth, cx = cw / 2;
-                ch = canvas.height = window.innerHeight, cy = ch / 2;
- 
-                //particles.map((p) => p.update());
-                Draw();
-            };
- 
-            setTimeout(function() {
-                Init();
-                window.addEventListener('resize', Init, false);
-            }, 15);
- 
-            var light = 1;    //透明度
-            setInterval(function(){
-                if(light == 1){
-                    light = .5;
-                }else{
-                    light = 1;
-                }
-            },350)
-            }  ,      
+           
+            },      
 
 
                         
             methods: {
                 //重置
-                handleReset2 () {
-                    this.$refs.ruleForm2.resetFields()
+                handleReset () {
+                    this.$refs.ruleForm.resetFields()
                 },
-    
-                // login(){
-                //     var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass };
-
-                //     this.$refs.ruleForm2.validate(async valid=>{
-                //         if(!valid) return;
-                //         const result = await this.$http.post('/api/user/login',loginParams );
-                //         console.log(result);
-
-
-                //     })
-                // },
                 // 登录校验
-                handleSubmit2() {
+                handleSubmit() {
                     var _this = this;
-                    this.$refs.ruleForm2.validate((valid) => {
+                    this.$refs.ruleForm.validate((valid) => {
                         if (valid) {
                             // _this.$router.replace('/table');
                             this.logining = true;
-                            var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass };
+                            var loginParams = { username: this.ruleForm.account, password: this.ruleForm.checkPass };
                             requestLogin(loginParams).then(_data => {
                                 _this.logining = false;
                                 let { msg, code, data } = _data;
@@ -224,7 +82,7 @@
                                     sessionStorage.setItem('username', JSON.stringify(data.first_name));
                                     sessionStorage.setItem('token', 'Token '+data.key);
                                     console.log(_this.$route);
-                                    _this.$router.push('/home');
+                                    _this.$router.push('/Summary');
                                     // if (_this.$route.query.url) {
                                     //     _this.$router.push(_this.$route.query.url);
                                     // } else {

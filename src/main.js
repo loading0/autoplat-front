@@ -17,27 +17,32 @@ axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')
   // 在最后必须return config
   return config
-})
+},
+  err => {
+    Vue.prototype.$message.error('请求超时')
+    return Promise.reject(err)
+  }
+)
 
-// response拦截器
-// axios.interceptors.response.use(
-//   response => {
-//       return response;
-//   },
-//   error => {
-//       if (error.response) {
-//           switch (error.response.status) {
-//               case 401:
-//                   // 返回 401 清除token信息并跳转到登录页面
-//                   // store.commit(types.LOGOUT);
-//                   router.replace({
-//                       path: '/login',
-//                       query: {redirect: router.currentRoute.fullPath}
-//                   })
-//           }
-//       }
-//       return Promise.reject(error.response.data)   // 返回接口返回的错误信息
-//   });
+//response拦截器
+axios.interceptors.response.use(
+  response => {
+      return response;
+  },
+  error => {
+      if (error.response) {
+          switch (error.response.status) {
+              case 401:
+                  // 返回 401 清除token信息并跳转到登录页面
+                  // store.commit(types.LOGOUT);
+                  router.replace({
+                      path: '/login',
+                      query: {redirect: router.currentRoute.fullPath}
+                  })
+          }
+      }
+      return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+  });
 Vue.prototype.$http = axios;
 Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
